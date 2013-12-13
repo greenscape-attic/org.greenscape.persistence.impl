@@ -15,11 +15,11 @@ public class PersistenceFactoryUtil {
 		return provider;
 	}
 
-	public static DocumentModel createDocumentModel(String modelName) {
+	public static DocumentModel createDocumentModel() {
 		return new DocumentModelBase();
 	}
 
-	public static PersistedModel createPersistedModel(String modelName) {
+	public static PersistedModel createPersistedModel() {
 		return new PersistedModelBase();
 	}
 }

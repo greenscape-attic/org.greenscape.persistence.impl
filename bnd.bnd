@@ -3,3 +3,4 @@ Export-Package: org.greenscape.persistence.util,\
 	org.greenscape.persistence.impl
 -buildpath: org.greenscape.persistence;version=latest,\
 	jackson-core-asl
+-sources: false

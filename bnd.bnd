@@ -1,6 +1,8 @@
 Bundle-Version: 0.1.0
-Export-Package: org.greenscape.persistence.util,\
-	org.greenscape.persistence.impl
+Export-Package: org.greenscape.persistence.util
 -buildpath: org.greenscape.persistence;version=latest,\
-	jackson-core-asl
+	osgi.core;version=4.3,\
+	org.eclipse.osgi.services
 -sources: false
+Private-Package: org.greenscape.persistence.impl
+-dsannotations: *

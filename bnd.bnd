@@ -2,7 +2,9 @@ Bundle-Version: 0.1.0
 Export-Package: org.greenscape.persistence.util
 -buildpath: org.greenscape.persistence;version=latest,\
 	osgi.core;version=4.3,\
-	org.eclipse.osgi.services
+	org.eclipse.osgi.services,\
+	osgi.cmpn;version=4.3
 -sources: false
 Private-Package: org.greenscape.persistence.impl
 -dsannotations: *
+Bundle-Activator: org.greenscape.persistence.impl.Activator

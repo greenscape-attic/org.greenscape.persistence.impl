@@ -14,16 +14,18 @@ import org.osgi.service.component.annotations.Modified;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
+import org.osgi.service.component.annotations.ReferencePolicyOption;
 
 @Component(configurationPolicy = ConfigurationPolicy.REQUIRE, configurationPid = PersistenceConstants.CONFIG_NAME)
 public class PersistenceConfigurator {
+	private static final String PERSISTENCE_MODEL_AUTOCREATE = "persistence.model.autocreate";
 	private boolean autocreate;
 	private final List<ModelRegistryEntry> modelList = new ArrayList<>();
 	private PersistenceService persistenceService;
 
 	@Activate
 	private void activate(Map<String, Object> properties) {
-		String strAutocreate = (String) properties.get("persistence.model.autocreate");
+		String strAutocreate = (String) properties.get(PERSISTENCE_MODEL_AUTOCREATE);
 		autocreate = Boolean.valueOf(strAutocreate);
 		if (autocreate) {
 			createModel();
@@ -32,16 +34,16 @@ public class PersistenceConfigurator {
 
 	@Modified
 	private void modified(Map<String, Object> properties) {
-		String strAutocreate = (String) properties.get("persistence.model.autocreate");
+		String strAutocreate = (String) properties.get(PERSISTENCE_MODEL_AUTOCREATE);
 		autocreate = Boolean.valueOf(strAutocreate);
-	}
-
-	@Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC)
-	public void setModelRegistryEntry(ModelRegistryEntry entry) {
-		modelList.add(entry);
 		if (autocreate) {
 			createModel();
 		}
+	}
+
+	@Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, policyOption = ReferencePolicyOption.GREEDY)
+	public void setModelRegistryEntry(ModelRegistryEntry entry) {
+		modelList.add(entry);
 	}
 
 	public void unsetModelRegistryEntry(ModelRegistryEntry entry) {

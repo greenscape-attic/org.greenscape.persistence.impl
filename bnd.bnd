@@ -1,4 +1,4 @@
-Bundle-Version: 0.1.0
+Bundle-Version: 0.1.1
 Export-Package: org.greenscape.persistence.util
 -buildpath: org.greenscape.persistence;version=latest,\
 	osgi.core;version=4.3,\

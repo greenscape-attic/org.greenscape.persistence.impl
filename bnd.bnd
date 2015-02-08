@@ -2,10 +2,12 @@ Bundle-Version: 0.1.1
 Export-Package: org.greenscape.persistence.util
 -buildpath:  \
 	org.greenscape.persistence;version=latest,\
-	osgi.core;version=4.3,\
+	osgi.core;version=5.0,\
 	org.eclipse.osgi.services,\
-	osgi.cmpn;version=4.3,\
+	osgi.cmpn;version=5.0,\
 	org.greenscape.core;version=latest
 -sources: false
 Private-Package: org.greenscape.persistence.impl
 -dsannotations: *
+javac.source=1.8
+javac.target=1.8

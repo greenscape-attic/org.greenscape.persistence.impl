@@ -11,3 +11,10 @@ Private-Package: org.greenscape.persistence.impl
 -dsannotations: *
 javac.source=1.8
 javac.target=1.8
+-runfw: org.apache.felix.framework;version='[4,5)'
+-runee: JavaSE-1.8
+-runrequires:  \
+	osgi.identity;filter:='(osgi.identity=org.greenscape.persistence)'
+-runbundles:  \
+	com.fasterxml.jackson.core.jackson-annotations;version='[2.3.3,2.3.4)',\
+	org.greenscape.persistence;version=latest
